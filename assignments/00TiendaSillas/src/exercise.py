@@ -1,10 +1,26 @@
 def precio_antes_descuento(tipo_silla, cantidad) :
-    # Agrega aquí el código de la funcion
-    pass
+        if tipo_silla=='B':
+            precio=700*cantidad
+        elif tipo_silla=='E':
+            precio=900*cantidad
+        else:
+            precio=1500*cantidad
+        return precio 
+
 
 def calcula_descuento(precio, tipo_cl) :
     # Agrega aquí el código de la funcion
-    pass
+    if tipo_cl=='F':
+        desc=precio*.20
+    else:
+        if precio>=10000<=precio<20000: 
+            desc=precio*.10
+        elif precio>=20000:
+            desc=precio*.15
+        else: 
+            desc=0
+    return desc
+
 
 def main() :
     # pido el tipo de silla (B E L)
@@ -13,9 +29,12 @@ def main() :
     tipo_cl = input("Tipo cliente: ")
     cantidad = int(input("Cantidad de sillas: "))
 
-    subtotal = # Calcula el precio antes del descuento
-    desc = # Calcula del descuento
-    total = # Calcula el total a pagar
+    totalsd=precio_antes_descuento(tipo_silla, cantidad)
+    descuento=calcula_descuento(totalsd, tipo_cl)
+
+    subtotal = float(totalsd)
+    desc = float(descuento)
+    total = float(totalsd-descuento)
 
     print(f"Total sin dcto.  ${subtotal:>7}")
     print(f"Descuento        ${desc:>7}")
